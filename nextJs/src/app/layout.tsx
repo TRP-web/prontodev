@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import logoMain from "@/public/weblogo/logomain.png"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,24 +18,47 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`antialiased max-w-[1200px] m-auto`}
       >
-        <header>
-          <nav>
-            <ul>
-              <li>
-                logo
+        <header className="flex items-center border-b border-b-[#EBEBEB] p-1.5 pt-0">
+          <Link href={"/"}>
+            <Image
+              src={logoMain.src}
+              width={75}
+              height={75}
+              alt="logo"
+            />
+          </Link>
+          <nav className=" grow w-full items-center">
+            <ul className="flex w-full text-gray text-2xl items-center">
+              <li className="ml-8">
+                <Link href={"/about"} >
+                  About us
+                </Link>
               </li>
-              <li>
-                about us
+              <li className="ml-4">
+                <Link href={"/contact"}>
+                  Contact us
+                </Link>
               </li>
-              <li>
-                order
+              <li className="ml-4">
+                <Link href={"/fqa"}>
+                  FQA
+                </Link>
+              </li>
+              <li className="ml-auto">
+                <button className="bg-orange text-white p-2.5 font-medium rounded-[5px] cursor-pointer">
+                  Want to order?
+                </button>
               </li>
             </ul>
           </nav>
         </header>
+        <div className=""></div>
         {children}
+        <footer>
+          logos been taken from https://www.flaticon.com
+        </footer>
       </body>
     </html>
   );
