@@ -35,7 +35,7 @@ export default function Main() {
           />
         </div>
       </div>
-      <div className="flex justify-between items-start">
+      <div className="flex justify-between items-start mb-[180px]">
         <div className="max-w-[250px] flex flex-col items-center mr-10">
           <Image
             src={TimeIcon.src}
