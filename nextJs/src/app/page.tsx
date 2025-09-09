@@ -5,9 +5,10 @@ import TimeIcon from "@/public/smallicons/time-management.png"
 import IdiasIcon from "@/public/smallicons/mentorship.png"
 import AutomationIcon from "@/public/smallicons/automation.png"
 import Portfolio from "@/components/Portfolio";
+import ApplyForms from "@/components/ApplyForms";
 export default function Main() {
   return (
-    <>
+    <main>
       {/* лого(наверное какойто текст лого от аи) и картинки
       шрифты не забудь
       наебашьить какой визуал чтобы сайт не сильно простым казался
@@ -96,6 +97,7 @@ export default function Main() {
         </div>
       </div>
       <Portfolio />
-    </>
+      <ApplyForms/>
+    </main>
   )
 }
