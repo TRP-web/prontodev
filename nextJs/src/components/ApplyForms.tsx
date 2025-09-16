@@ -3,23 +3,20 @@
 import Image from "next/image"
 import React from "react"
 const ApplyForms = () => {
-    React.useEffect(() => {
-        const fuc = async () => {
-            const res = await fetch("/api/test", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
+    
+    const emailForContacting = async (email:string) => {
+        const req = await fetch("/api/contact-email", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email })
+        })
+        setEmailInput("")
+        const reqjson = await req.json()
+        console.log(reqjson)
 
-                },
-                body: JSON.stringify({testbody: "xjxjxjdkkd"})
-            })
-            console.log(res)
-            const data = await res.json(); // <-- вот здесь преобразование
-            console.log(data);
-        }
-
-        fuc()
-    }, [])
+    }
     const [emailInput, setEmailInput] = React.useState<string>("")
     return (
         <>
@@ -29,6 +26,7 @@ const ApplyForms = () => {
                     <div className="flex flex-col ">
                         <label htmlFor="email">Email:</label>
                         <div className="flex items-center">
+                            {/* емейл ерор сделать когда и возможно проверки на емейлы  */}
                             <input
                                 className="focus:outline-0 border border-gray-100 h-16 text-xl mr-12  min-w-[450px] pl-2"
                                 type="email"
@@ -38,7 +36,15 @@ const ApplyForms = () => {
                                 id="email"
                                 alt="email"
                             />
-                            <button className="p-4 cursor-pointer text-2xl font-medium bg-orange text-white">Contact Me!</button>
+                            <button
+                                onClick={(e) => {e.preventDefault(); emailForContacting(emailInput)} }
+                                onSubmit={(e) => {
+                                    e.preventDefault()
+                                }}
+                                className="p-4 cursor-pointer text-2xl font-medium bg-orange text-white"
+                            >
+                                Contact Me!
+                            </button>
                         </div>
                     </div>
                 </form>

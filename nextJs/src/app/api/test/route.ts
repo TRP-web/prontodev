@@ -5,7 +5,5 @@ export async function POST(req: Request ) {
   return Response.json({ message: "Привет из API (POST)", });
 }
 
-сделать api для отправке емейлов
-https://resend.com/docs/send-with-nextjs
 
-позже сделать отправку мейлов с воего доменна... хз как
+// позже сделать отправку мейлов с воего доменна... хз как
