@@ -47,7 +47,7 @@ export default function RootLayout({
                 </Link>
               </li>
               <li className="ml-auto">
-                <button className="bg-orange text-white p-2.5 font-medium rounded-[5px] cursor-pointer">
+                <button className="button p-2.5 rounded-[5px] cursor-pointer">
                   Want to order?
                 </button>
               </li>

@@ -4,3 +4,16 @@
     --color-gray: #666666;
     --color-orange: #FFBA42;
 }
+
+.button {
+    background-color: #FFBA42;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.button:active {
+    background-color: #ffb431;
+    box-shadow: 0px 0px 2px #ffb431;
+
+}

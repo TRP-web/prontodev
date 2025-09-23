@@ -1,10 +1,11 @@
 "use client"
 
-import Image from "next/image"
 import React from "react"
+import Quiz from "./Quiz"
 const ApplyForms = () => {
     
     const emailForContacting = async (email:string) => {
+        setEmailInput("")
         const req = await fetch("/api/contact-email", {
             method: "POST",
             headers: {
@@ -12,7 +13,6 @@ const ApplyForms = () => {
             },
             body: JSON.stringify({ email: email })
         })
-        setEmailInput("")
         const reqjson = await req.json()
         console.log(reqjson)
 
@@ -41,8 +41,9 @@ const ApplyForms = () => {
                                 onSubmit={(e) => {
                                     e.preventDefault()
                                 }}
-                                className="p-4 cursor-pointer text-2xl font-medium bg-orange text-white"
+                                className="p-4 cursor-pointer text-2xl font-medium button"
                             >
+                                {/* mouse down styles here and everywhere. maybe one style for all buttons  */}
                                 Contact Me!
                             </button>
                         </div>
@@ -51,26 +52,12 @@ const ApplyForms = () => {
                 <div className="mb-12">
                     not a robot...
                 </div>
-                <h3 className="text-2xl font-medium text-center mb-12">Or...</h3>
-                <div className="max-w-[780px] m-auto mb-72">
-                    <div className="">{/* slide */}
-                        <Image
-                            alt="slide image"
-                            height={200}
-                            width={300}
-                            src={""}
-                        />
-                        <form action="#">
-                            <label className="text-2xl block">Your business area ?</label>
-                            <select name="area" id="area">
-                                <option value="prodaction">prodaction</option>
-                                <option value="prodaction">prodddaction</option>
-                            </select>
-                            <button>next</button>
-                        </form>
-
-                    </div>
+                <div className="relative">
+                    <span className="h-0.5 w-[40%] absolute top-[calc(50%-1px)] left-0 bg-gray-100 "></span>
+                    <span className="h-0.5 w-[40%] absolute top-[calc(50%-1px)] right-0 bg-gray-100"></span>
+                    <h3 className="text-2xl font-medium text-center mb-12 relative">Or...</h3>
                 </div>
+                <Quiz/>
             </div>
         </>
     )
