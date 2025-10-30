@@ -2,11 +2,15 @@
 
 @theme {
     --color-gray: #666666;
+    --color-hover-gray: #575757;
     --color-orange: #FFBA42;
+     --breakpoint-xs: 30rem;
+     --breakpoint-xm: 20rem;
 }
 
 .button {
     background-color: #FFBA42;
+    color: #575757;
     color: white;
     cursor: pointer;
     font-weight: 500;
@@ -15,5 +19,26 @@
 .button:active {
     background-color: #ffb431;
     box-shadow: 0px 0px 2px #ffb431;
-
 }
+
+.input-text {
+    border: 1px solid #f6f3f4;
+    min-width: 450px;
+    height: 64px;
+    font-size: 20px;
+    padding-left: 8px;
+}
+
+.input-text:focus{
+    outline: none;
+}
+
+
+/* Breakpoint prefix	Minimum width	CSS
+xm	20rem (320px)	@media (width >= 20rem) { ... }
+xs	30rem (480px)	@media (width >= 30rem) { ... }
+sm	40rem (640px)	@media (width >= 40rem) { ... }
+md	48rem (768px)	@media (width >= 48rem) { ... }
+lg	64rem (1024px)	@media (width >= 64rem) { ... }
+xl	80rem (1280px)	@media (width >= 80rem) { ... }
+2xl	96rem (1536px)	@media (width >= 96rem) { ... } */

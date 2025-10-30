@@ -16,7 +16,7 @@ const Project: React.FC<IProjectProps> = ({
 
     const [open, setOpen] = React.useState(false)
     return (
-        <div className="mb-11 cursor-pointer max-w-[945px]  rounded-t-2xl overflow-hidden">
+        <div className="mb-11 cursor-pointer max-w-[945px] w-full rounded-t-2xl overflow-hidden">
             {
                 image !== undefined ?
                     <div className="w-full relative shrink-0 grow max-w-[945px]">
@@ -27,8 +27,8 @@ const Project: React.FC<IProjectProps> = ({
                             className="top-0 left-0"
                         />
                     </div>
-                    : <div>
-                        <div className="bg-gray-400 w-[945px] h-[300px] "></div>
+                    : <div className="">
+                        <div className="bg-gray-400 w-full h-[300px] "></div>
                     </div>
 
             }
