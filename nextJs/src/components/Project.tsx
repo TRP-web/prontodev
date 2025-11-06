@@ -23,8 +23,11 @@ const Project: React.FC<IProjectProps> = ({
                         <Image
                             src={image}
                             alt="profile"
-                            fill
+                            sizes="100vw"
+                            width={0}
+                            height={0}
                             className="top-0 left-0"
+                            style={{ width: "100%", height: "auto" }}
                         />
                     </div>
                     : <div className="">
@@ -47,7 +50,7 @@ const Project: React.FC<IProjectProps> = ({
             </div>
             {
                 open ?
-                    <div className={`p-1 bg-gray-50 text-xl ${open ? "rounded-b-2xl ": ""}`}>
+                    <div className={`p-1 bg-gray-50 text-xl ${open ? "rounded-b-2xl " : ""}`}>
                         <p>
                             {description}
                         </p>

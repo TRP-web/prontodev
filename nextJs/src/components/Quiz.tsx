@@ -28,7 +28,7 @@ interface IQuizContactData {
 
 const Quiz: React.FC<IQuizProps> = ({ token }) => {
     // получить токен или сделать свой и сделать капчу в апи
-    const [activeQuestion, setActiveQuestion] = React.useState<number>(5)
+    const [activeQuestion, setActiveQuestion] = React.useState<number>(1)
     const [quizData, setQuizData] = React.useState<IQuizData>({
         buissnes: "None",
         process: "None",

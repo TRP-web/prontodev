@@ -4,7 +4,7 @@ const Page: React.FC = () => {
 
    return (
       <>
-         test
+         
       </>
    )
 }
