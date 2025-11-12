@@ -40,22 +40,22 @@ export async function POST(req: Request) {
         }
 
 
-        // await sendMail(process.env.REQUEST_EMAIL!,
-        //     `<h1>New quiz request !</h1> 
-        //     <h2> Contact information:</h2>
-        //     buissnes: <strong>${data.buissnes}</strong></br>
-        //     process: <strong>${data.process}</strong></br>
-        //     budget: <strong>${data.budget}</strong></br>
-        //     email: <strong>${data.email}</strong></br>
-        //     phone: <strong>${data.phone}</strong></br>
-        //     other: <strong>${data.other}</strong></br>
-        //     `
-        // )
-        // await sendMail(data.email,
-        //     `<h1>Thank you for your request!</h1> 
-        //     we will contact you soon!
-        //     `
-        // )
+        await sendMail(process.env.REQUEST_EMAIL!,
+            `<h1>New quiz request !</h1> 
+            <h2> Contact information:</h2>
+            buissnes: <strong>${data.buissnes}</strong></br>
+            process: <strong>${data.process}</strong></br>
+            budget: <strong>${data.budget}</strong></br>
+            email: <strong>${data.email}</strong></br>
+            phone: <strong>${data.phone}</strong></br>
+            other: <strong>${data.other}</strong></br>
+            `
+        )
+        await sendMail(data.email,
+            `<h1>Thank you for your request!</h1> 
+            we will contact you soon!
+            `
+        )
         return Response.json({ success: true, validate: true })
     } catch (e) {
         console.log(e)

@@ -33,6 +33,9 @@
     outline: none;
 }
 
+#hover:hover #hover-change{
+    border-color: #FFBA42;
+}
 
 /* Breakpoint prefix	Minimum width	CSS
 xm	20rem (320px)	@media (width >= 20rem) { ... }

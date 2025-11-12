@@ -15,14 +15,14 @@ export async function POST(req: Request) {
       console.log(verifyData.success, data.email)
     if (verifyData.success && data.email != "") {
       console.log(verifyData.success)
-      // await sendMail(
-      //   process.env.REQUEST_EMAIL!,
-      //   `Contact request from <strong>${data.email}</strong>`)
+      await sendMail(
+        process.env.REQUEST_EMAIL!,
+        `Contact request from <strong>${data.email}</strong>`)
      
-      //   const info = await sendMail(
-      //   data.email,
-      //   "Thank you for contact request! We will contact you as soon as possible!"
-      // )
+        const info = await sendMail(
+        data.email,
+        "Thank you for contact request! We will contact you as soon as possible!"
+      )
       return Response.json({ info: "info" })
     }else Response.json({ success: false }, { status: 500 })
 
