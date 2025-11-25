@@ -31,6 +31,12 @@
 
 .input-text:focus{
     outline: none;
+    
+}
+
+#hover-change {
+  transition: all 0.2s;
+  transition-property: border-color, background-color, border-radius; /* exclude border-top */
 }
 
 #hover:hover #hover-change{

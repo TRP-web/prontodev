@@ -20,7 +20,7 @@ const ContactEmail: React.FC<IContactEmailProps> = ({token}) => {
     }
     return (
         <>
-            <h2 className="text-center text-4xl font-medium mb-14">Interesting?</h2>
+            <h2 className="text-center text-4xl font-bold mb-14">Interesting?</h2>
             <form className="flex justify-center">
                 <div className="flex flex-col ">
                     <label htmlFor="email">Email:</label>

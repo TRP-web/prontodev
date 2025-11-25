@@ -49,7 +49,7 @@ export default function RootLayout({
                 </Link>
               </li>
               <li className="">
-                <Link href={"/fqa"} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
+                <Link href={"/faq"} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
                   FQA
                 </Link>
               </li>
@@ -91,7 +91,8 @@ export default function RootLayout({
               <h3 className="text-3xl md:max-lg:text-2xl mb-4 xm:max-md:mb-2">Contact Us!</h3>
               <ul className="w-full text-gray text-2xl md:max-lg:text-xl xm:max-xs:text-[18px] items-center">
                 <li className="">
-                  Email: khomenkobohdanw@gmail.com
+                  Email: contact@prontodev.dev
+
                 </li>
                 <li className="">
                   Phone: +1 587 969 5446

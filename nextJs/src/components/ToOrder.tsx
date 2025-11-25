@@ -1,10 +1,16 @@
 "use client"
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const ToOrder: React.FC = () => {
+    const router = useRouter()
     const scrollHanddler = () => {
         const element = document.getElementById("apply-forms");
-        element?.scrollIntoView({ behavior: "smooth" });
+        if (element) {
+            element?.scrollIntoView({ behavior: "smooth" });
+        } else {
+            router.push("/contact")
+        }
     }
     return (
         <>
@@ -15,7 +21,7 @@ const ToOrder: React.FC = () => {
             </button>
             <button
                 onClick={scrollHanddler}
-                className="button px-2 py-1 rounded-[5px] text-xl cursor-pointer sm:hidden z-50">
+                className="button px-2 py-1 rounded-[5px] text-xl cursor-pointer sm:hidden ">
                 Order now!
             </button>
         </>
