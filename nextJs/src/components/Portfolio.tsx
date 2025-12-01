@@ -1,5 +1,6 @@
 'use client'
 import AlertAppImage from "@/public/portfolio/alert-app.png"
+import AlertUrgent from "@/public/portfolio/alert-app-urgent.png"
 import ChatImage from "@/public/portfolio/chat-main.png" 
 
 import Project from "./Project"
@@ -18,6 +19,7 @@ const Portfolio = () => {
             <Project
                image={AlertAppImage.src}
                title="Prodaction issue reporting system"
+               extraImages={[AlertAppImage.src, AlertUrgent.src, AlertAppImage.src]}
                description="Interface created especially for customer purposes. For combining between workers. Quick response and correction of product quality problems. Thus improving the quality of products and decreasing the number of marriages. Can additionally display photos for accurate problem detection. Works on any device capable of running a browser."
             />
             <Project

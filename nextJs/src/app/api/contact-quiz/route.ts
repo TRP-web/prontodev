@@ -1,4 +1,4 @@
-import sendMail from "@/app/scripts/sendMail"
+import sendMail, { email } from "@/app/scripts/sendMail"
 
 export async function POST(req: Request) {
     try {// email validation.. later after the start
@@ -52,9 +52,7 @@ export async function POST(req: Request) {
             `
         )
         await sendMail(data.email,
-            `<h1>Thank you for your request!</h1> 
-            we will contact you soon!
-            `
+            email
         )
         return Response.json({ success: true, validate: true })
     } catch (e) {
