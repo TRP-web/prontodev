@@ -6,6 +6,8 @@ import Quiz from "./Quiz"
 import ContactEmail from "./ContactEmail"
 const ApplyForms = () => {
     const [token, setToken] = React.useState<string>("")
+    const [finished, setFinished] = React.useState<boolean>(false)
+
 
     const handleLoaded = () => {
         window.grecaptcha.ready(() => {
@@ -32,7 +34,6 @@ const ApplyForms = () => {
                     .then(async (token: string) => {
                         setToken(token)
                     })
-                    console.log("test")
             })
         }, 1000 * 60 * 1.8)
         return () => {
@@ -42,8 +43,23 @@ const ApplyForms = () => {
     return (
         <>
             <div id="apply-forms">
-                <ContactEmail token={token} />
-                <Quiz token={token} />
+                {
+                    finished ?
+                        <div className="max-w-[780px] m-auto text-2xl text-center mb-12 bg-purple-600 text-white p-2">
+                            <strong>We are 100% done! Thank you!</strong>
+                        </div>
+                        : <>
+                            <ContactEmail
+                                token={token}
+                                setFinished={setFinished}
+                            />
+                            <Quiz
+                                token={token}
+                                setFinished={setFinished}
+                            />
+                        </>
+                }
+
             </div>
         </>
     )

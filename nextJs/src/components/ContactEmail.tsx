@@ -2,11 +2,11 @@ import React from "react"
 
 interface IContactEmailProps {
     token: string
+    setFinished: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ContactEmail: React.FC<IContactEmailProps> = ({token}) => {
+const ContactEmail: React.FC<IContactEmailProps> = ({token, setFinished}) => {
     const [emailInput, setEmailInput] = React.useState<string>("")
-
     const emailForContacting = async (email: string, token: string) => {
         setEmailInput("")
         const res = await fetch("/api/contact-email", {
@@ -16,7 +16,9 @@ const ContactEmail: React.FC<IContactEmailProps> = ({token}) => {
             },
             body: JSON.stringify({ email: email, token })
         })
-        const reqjson = await res.json()
+        const resjson = await res.json()
+        setFinished(resjson.success)
+        console.log(resjson)
     }
     return (
         <>

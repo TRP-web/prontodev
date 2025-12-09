@@ -39,7 +39,7 @@ const Project: React.FC<IProjectProps> = ({
             return (
                 <div
                     id="hover-change"
-                    className="w-full relative shrink-0 grow max-w-[945px] max-h-[425px] rounded-t-2xl overflow-hidden border-3 border-b-0 border-purple-600 hover:border-orange duration-300"
+                    className="w-full relative shrink-0 grow max-w-[945px]  rounded-t-2xl overflow-hidden border-3 border-b-0 border-purple-600 hover:border-orange duration-300"
                 >
                     {0 == activeImage ?
                         <Image
@@ -59,7 +59,7 @@ const Project: React.FC<IProjectProps> = ({
                             width={0}
                             height={0}
                             draggable="false"
-                            className="top-0 left-0 select-none"
+                            className="top-0 left-0 select-none max-h-[400px]"
                             style={{ width: "100%", height: "auto" }}
                         />
                     }
@@ -80,12 +80,10 @@ const Project: React.FC<IProjectProps> = ({
     if (extraImages !== undefined)
         React.useEffect(() => {
             const interval = setInterval(() => {
-                console.log(extraImages?.length, activeImage)
                 if (extraImages?.length === activeImage) {
                     setActiveImage(1)
                 } else {
                     const nextImage = activeImage + 1
-                    console.log(nextImage)
                     setActiveImage(nextImage)
                 }
             }, 5000)
@@ -93,7 +91,7 @@ const Project: React.FC<IProjectProps> = ({
             return () => clearInterval(interval)
         }, [activeImage])
 
-    console.log(activeImage)
+  
     return (
         <div className="mb-11 cursor-pointer max-w-[945px] w-full  overflow-hidden min-lg:hover:scale-105 duration-300" id="hover">
             {
@@ -128,7 +126,6 @@ const Project: React.FC<IProjectProps> = ({
                     </div>
                     : null
             }
-
         </div>
     )
 }

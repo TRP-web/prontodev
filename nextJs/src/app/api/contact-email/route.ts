@@ -14,9 +14,7 @@ export async function POST(req: Request) {
     });
 
     const verifyData = await res.json()
-    console.log(verifyData.success, data.email)
     if (verifyData.success && data.email != "") {
-      console.log(verifyData.success)
       await sendMail(
         process.env.REQUEST_EMAIL!,
         `Contact request from <strong>${data.email}</strong>`,
@@ -26,10 +24,11 @@ export async function POST(req: Request) {
         data.email,
         email
       )
-      return Response.json({ info: "info" })
+      return Response.json({ success: true }, { status: 500 })
     } else Response.json({ success: false }, { status: 500 })
 
   } catch (e) {
+    console.log(e)
     return Response.json({ success: false, errorInfo: e }, { status: 500 })
   }
 }

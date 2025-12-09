@@ -6,6 +6,7 @@ import budgetImage from "@/public/quiz-images/budget.png"
 
 interface IQuizProps {
     token: string
+    setFinished: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface IQuizObject {
@@ -26,7 +27,7 @@ interface IQuizContactData {
     other: IQuizObject
 }
 
-const Quiz: React.FC<IQuizProps> = ({ token }) => {
+const Quiz: React.FC<IQuizProps> = ({ token, setFinished }) => {
     // получить токен или сделать свой и сделать капчу в апи
     const [activeQuestion, setActiveQuestion] = React.useState<number>(1)
     const [quizData, setQuizData] = React.useState<IQuizData>({
@@ -63,7 +64,6 @@ const Quiz: React.FC<IQuizProps> = ({ token }) => {
             setActiveQuestion(activeQuestion + 1)
         }
     }
-    console.log(activeQuestion, quizData)
     const contactDataHandler = (e: React.ChangeEvent<HTMLInputElement>, object: keyof IQuizContactData) => {
         const newQuizDataContact = { ...quizDataContact }
         newQuizDataContact[object].value = e.target.value
@@ -97,7 +97,7 @@ const Quiz: React.FC<IQuizProps> = ({ token }) => {
                 token: token
             })
         })
-        const data: { validate: boolean, input: keyof IQuizContactData } = await res.json()
+        const data: { validate: boolean, input: keyof IQuizContactData, success?: boolean } = await res.json()
         if (!data.validate) {
             if (data.input) {
                 const newQuizDataContact = { ...quizDataContact }
@@ -105,9 +105,10 @@ const Quiz: React.FC<IQuizProps> = ({ token }) => {
                 setQuizDataContact(newQuizDataContact)
             }
         } else {
-            setActiveQuestion(activeQuestion + 1)
+            if (data.success) {
+                setFinished(true)
+            }
         }
-        console.log(data)
     }
     return (
         //progress bar
@@ -278,9 +279,7 @@ const Quiz: React.FC<IQuizProps> = ({ token }) => {
                         width={300}
                         src={""}
                     /> */}
-                    <div className="max-w-[780px] m-auto text-2xl text-center">
-                        <h3>We are 100% done! Thank you!</h3>
-                    </div>
+                    
                 </div>
             </form>
         </div>
