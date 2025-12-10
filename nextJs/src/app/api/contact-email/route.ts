@@ -24,7 +24,7 @@ export async function POST(req: Request) {
         data.email,
         email
       )
-      return Response.json({ success: true }, { status: 500 })
+      return Response.json({ success: true }, { status: 200 })
     } else Response.json({ success: false }, { status: 500 })
 
   } catch (e) {
