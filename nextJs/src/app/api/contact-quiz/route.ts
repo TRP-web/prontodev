@@ -1,7 +1,10 @@
 import sendMail, { email } from "@/app/scripts/sendMail"
+import { allowOrigin } from "../allowOrigin";
 
 export async function POST(req: Request) {
     try {// email validation.. later after the start
+        const origin = allowOrigin(req);
+        if (origin instanceof Response) return origin;
         const data = await req.json()
         console.log(data)
         const verifyUrl = `https://www.google.com/recaptcha/api/siteverify`;
