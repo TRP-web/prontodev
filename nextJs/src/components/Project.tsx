@@ -15,13 +15,13 @@ const Project: React.FC<IProjectProps> = ({
     title
 }) => {
 
-    
+
     const viewingConditions = (): React.ReactNode => {
         if (image !== undefined && extraImages === undefined) {
             return (
                 <div
                     id="hover-change"
-                    className="w-full select-none relative shrink-0 grow max-w-[945px] rounded-t-2xl overflow-hidden border-3 border-b-0 border-purple-600 hover:border-orange duration-300">
+                    className="w-full select-none relative shrink-0 grow max-w-[945px] rounded-t-2xl overflow-hidden border-3 border-b-0 border-gray-200 hover:border-orange duration-300">
                     <Image
                         src={image}
                         alt="profile"
@@ -38,8 +38,9 @@ const Project: React.FC<IProjectProps> = ({
         } else if (image !== undefined && extraImages !== undefined) {
             return (
                 <div
+                    onClick={() => setOpen(!open)}
                     id="hover-change"
-                    className="w-full relative shrink-0 grow max-w-[945px]  rounded-t-2xl overflow-hidden border-3 border-b-0 border-purple-600 hover:border-orange duration-300"
+                    className="w-full relative shrink-0 grow max-w-[945px]  rounded-t-2xl overflow-hidden border-3 border-b-0 border-gray-200 hover:border-orange duration-300"
                 >
                     {0 == activeImage ?
                         <Image
@@ -91,15 +92,15 @@ const Project: React.FC<IProjectProps> = ({
             return () => clearInterval(interval)
         }, [activeImage])
 
-  
+
     return (
-        <div className="mb-11 cursor-pointer max-w-[945px] w-full  overflow-hidden min-lg:hover:scale-105 duration-300" id="hover">
+        <div className="mb-11 cursor-pointer max-w-[945px] w-full rounded-2xl shadow-[0_0_41px_9px_rgba(34,60,80,0.09)]   min-lg:hover:scale-105 duration-300" id="hover">
             {
                 viewingConditions()
             }
             <div
                 id="hover-change"
-                className={`flex justify-between p-2 items-center border-2  border-purple-600 hover:border-orange duration-300 ${!open ? "rounded-b-2xl " : "border-b-0"}`}
+                className={`flex  justify-between p-2 items-center border-2 overflow-hidden  border-gray-200 hover:border-orange duration-300 ${!open ? "rounded-b-2xl " : "border-b-0"}`}
                 onClick={() => setOpen(!open)}
             >
                 <h3 className="text-2xl">{title}</h3>
@@ -116,7 +117,7 @@ const Project: React.FC<IProjectProps> = ({
                     <div
                         id="hover-change"
                         className={`p-1 bg-gray-50 text-xl ${open
-                            ? "rounded-b-2xl border-2 border-t-0 border-purple-600 hover:border-orange transition-colors"
+                            ? "rounded-b-2xl border-2 border-t-0 border-gray-300 hover:border-orange transition-colors"
                             : ""
                             }`}
                     >

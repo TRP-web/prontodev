@@ -37,7 +37,7 @@ export default function RootLayout({
             />
           </Link>
           <nav className="grow w-full items-center">
-            <ul className="flex w-full text-gray  text-2xl xm:max-xs:text-[18px] items-center xm:max-xs:justify-between">
+            <ul className="flex w-full text-gray  text-2xl xm:max-xs:text-[18px] items-center xm:max-xs:justify-between xm:max-xs:pr-2">
               <li className="ml-9 xs:max-sm:ml-3">
                 <Link href={"/about"} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
                   About us
@@ -62,7 +62,7 @@ export default function RootLayout({
             </ul>
           </nav>
         </header>
-        <div className="px-3 xm:max-xs:px-[2px]">
+        <div className="px-3 xm:max-xs:px-[12px]">
           {children}
         </div>
         <footer className="border-t-gray-300 border-t pt-9 px-5">
