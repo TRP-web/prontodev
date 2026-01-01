@@ -98,25 +98,8 @@ const Page: React.FC = () => {
                             outline the plan, and prepare an initial estimate.
                         </p>
                     </div>
-
                 </div>
             </div>
-            Subject: Thank you — we received your request
-
-            Hi!
-
-            Thank you for contacting Pronto Dev team!
-            We’ve received your request and our team is reviewing it.
-
-            One of our specialists will reach out within 1–2 business days.
-
-            If you need urgent help, you can:
-            — call us at: +1 587-969-5446
-            — email support: contact@prontodev.dev
-
-            Best,
-            The Pronto Dev team
-
         </section>
     )
 }

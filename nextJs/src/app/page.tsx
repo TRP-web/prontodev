@@ -101,7 +101,7 @@ export default function Main() {
         </div>
       </section>
       <section id="about us" className="mb-16"> {/* chenge text here and "about us" */}
-        <div className="mb-5">
+        <div className="mb-5 bg-gray-100">
           <h1 className="text-4xl font-bold mb-11 text-center">Quickly About Us</h1>
           <p className="leading-relaxed text-xl">
             At <span className="font-semibold">Pronto Dev</span>, we build powerful, scalable, and intuitive web software that helps businesses work smarter, move faster, and grow with confidence. We believe technology should simplify operations—not complicate them. That’s why we focus on creating clean, reliable, and future-proof solutions tailored to each client’s unique needs.

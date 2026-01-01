@@ -5,7 +5,7 @@ interface IProjectProps {
     image?: string
     extraImages?: string[]
     title: string
-    description: string
+    description: string | React.ReactNode
 }
 
 const Project: React.FC<IProjectProps> = ({
@@ -60,7 +60,7 @@ const Project: React.FC<IProjectProps> = ({
                             width={0}
                             height={0}
                             draggable="false"
-                            className="top-0 left-0 select-none max-h-[400px]"
+                            className="top-0 left-0 select-none"
                             style={{ width: "100%", height: "auto" }}
                         />
                     }
@@ -82,7 +82,7 @@ const Project: React.FC<IProjectProps> = ({
         React.useEffect(() => {
             const interval = setInterval(() => {
                 if (extraImages?.length === activeImage) {
-                    setActiveImage(1)
+                    setActiveImage(0)
                 } else {
                     const nextImage = activeImage + 1
                     setActiveImage(nextImage)
@@ -121,7 +121,7 @@ const Project: React.FC<IProjectProps> = ({
                             : ""
                             }`}
                     >
-                        <p>
+                        <p className="pl-2">
                             {description}
                         </p>
                     </div>
