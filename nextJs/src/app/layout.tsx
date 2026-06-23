@@ -2,7 +2,7 @@
 
 import type { Metadata } from "next";
 import Image from "next/image";
-import logoMain from "@/public/weblogo/logomain.png"
+import logoMain from "@/public/weblogo/Mainlogo.svg"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
@@ -27,11 +27,11 @@ export default function RootLayout({
       <body
         className={`antialiased max-w-[1200px] m-auto`}
       >
-        <header className="flex items-center border-b border-b-[#EBEBEB] p-1.5 pt-0">
+        <header className="flex shrink-0 items-center border-b border-b-[#EBEBEB] p-1.5 ">
           <Link href={"/"}>
             <Image
               src={logoMain.src}
-              width={75}
+              width={200}
               height={75}
               alt="logo"
             />
