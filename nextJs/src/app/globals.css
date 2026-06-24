@@ -6,8 +6,10 @@
     --color-orange: #FFBA42;
     --color-blue: #2D5A98;
     --color-dark-blue: #162340;
-     --breakpoint-xs: 30rem;
-     --breakpoint-xm: 20rem;
+    --font-inter: var(--font-inter-source);
+    --font-montserrat: var(--font-montserrat-source);
+    --breakpoint-xs: 30rem;
+    --breakpoint-xm: 20rem;
 }
 
 .button {

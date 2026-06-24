@@ -2,13 +2,15 @@
 
 import type { Metadata } from "next";
 import Image from "next/image";
-import logoMain from "@/public/weblogo/Mainlogo.svg"
+import LogoMain from "@/public/weblogo/Mainlogo.svg"
+import LogoSmall from "@/public/weblogo/logomain.svg"
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import ToOrder from "@/components/ToOrder";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import PhoneImg from "@/public/weblogo/phone.svg"
+
 
 export const metadata: Metadata = {
   title: "Prontodev",
@@ -17,6 +19,11 @@ export const metadata: Metadata = {
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
   variable: "--font-montserrat",
+});
+
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-inter-source",
 });
 
 
@@ -32,19 +39,27 @@ export default function RootLayout({
       <body
         className={`antialiased max-w-[1920px] m-auto ${montserrat.className}`}
       >
-        <header className="flex items-center  w-full 2xl:h-[173px] justify-between p-1.5 px-[82px]">
+        <header className="flex items-center w-full 2xl:h-[173px] xl:h-[120px] lg:h-[80px] justify-between p-1.5 xm:px-[12px] lg:px-[82px]">
           <Link href={"/"} className="block shrink-0">
             <Image
-              src={logoMain.src}
+              src={LogoMain.src}
               width={440}
               height={75}
               priority
               alt="logo"
-              className="h-auto w-[440px] xl:w-[280px] lg:w-[200px] 2xl:w-[440px]"
+              className="h-auto w-[440px] xl:w-[280px] lg:w-[200px] 2xl:w-[440px] xm:hidden lg:block"
+            />
+            <Image
+              src={LogoSmall.src}
+              width={100}
+              height={100}
+              priority
+              alt="logo"
+              className="h-auto xm:w-[80px] xl:w-[280px] lg:w-[200px] 2xl:w-[440px] xm:block lg:hidden"
             />
           </Link>
           <nav className="items-center">
-            <ul className="flex text-black 2xl:text-[26px] lg:text-[20px] xm:max-xs:text-[18px] items-center xm:max-xs:justify-between xm:max-xs:pr-2">
+            <ul className="flex text-black 2xl:text-[26px] lg:text-[20px]  md:text-[22px] xl:text-[24px] items-center xm:max-xs:justify-between xm:max-xs:pr-2">
               <li className="ml-9 xs:max-sm:ml-3">
                 <Link href={"/about"} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
                   About us
@@ -68,10 +83,11 @@ export default function RootLayout({
               width={46}
               height={46}
               alt="phone logo"
+              className="lg:w-[35px] xl:w-[46px] md:w-[25px]"
             />
             <a
               href="tel:+15879695446"
-              className="ml-2 inline-flex h-[57px] items-center gap-1 overflow-hidden pr-5 text-[22px] font-bold text-[#1A4E95]"
+              className={`ml-2 inline-flex h-[57px] items-center gap-1 overflow-hidden pr-5 text-[22px] font-bold text-[#1A4E95] ${inter.className}`}
             >+1 587 969 5446</a>
           </div>
 
