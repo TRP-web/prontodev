@@ -1,5 +1,4 @@
 
-
 import type { Metadata } from "next";
 import Image from "next/image";
 import LogoMain from "@/public/weblogo/Mainlogo.svg"
@@ -26,6 +25,13 @@ const inter = Inter({
   variable: "--font-inter-source",
 });
 
+const navLinks = [
+  { href: "/", label: "Main" },
+  { href: "/about", label: "About us" },
+  { href: "/contact", label: "Contact us" },
+  { href: "/faq", label: "FQA" },
+];
+
 
 export default function RootLayout({
   children,
@@ -39,7 +45,7 @@ export default function RootLayout({
       <body
         className={`antialiased max-w-[1920px] m-auto ${montserrat.className}`}
       >
-        <header className="flex items-center w-full 2xl:h-[173px] xl:h-[120px] lg:h-[80px] justify-between p-1.5 xm:px-[12px] lg:px-[82px]">
+        <header className="flex items-center w-full 2xl:h-[173px] xl:h-[120px] lg:h-[80px] justify-between p-1.5 xm:py-3 xm:px-[12px] lg:px-[82px]">
           <Link href={"/"} className="block shrink-0">
             <Image
               src={LogoMain.src}
@@ -47,7 +53,7 @@ export default function RootLayout({
               height={75}
               priority
               alt="logo"
-              className="h-auto w-[440px] xl:w-[280px] lg:w-[200px] 2xl:w-[440px] xm:hidden lg:block"
+              className="h-auto xm:w-[230px] xs:w-[330px]  w-[440px] xl:w-[280px] lg:w-[230px] 2xl:w-[440px] block md:hidden lg:block"
             />
             <Image
               src={LogoSmall.src}
@@ -55,29 +61,42 @@ export default function RootLayout({
               height={100}
               priority
               alt="logo"
-              className="h-auto xm:w-[80px] xl:w-[280px] lg:w-[200px] 2xl:w-[440px] xm:block lg:hidden"
+              className="h-auto xm:w-[80px] xl:w-[280px] lg:w-[200px] 2xl:w-[440px] xm:hidden md:block lg:hidden"
             />
           </Link>
-          <nav className="items-center">
+          <nav className="hidden items-center md:block">
             <ul className="flex text-black 2xl:text-[26px] lg:text-[20px]  md:text-[22px] xl:text-[24px] items-center xm:max-xs:justify-between xm:max-xs:pr-2">
-              <li className="ml-9 xs:max-sm:ml-3">
-                <Link href={"/about"} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
-                  About us
-                </Link>
-              </li>
-              <li className="">
-                <Link href={"/contact"} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
-                  Contact us
-                </Link>
-              </li>
-              <li className="">
-                <Link href={"/faq"} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
-                  FQA
-                </Link>
-              </li>
+              {navLinks.map((link, index) => {
+                if (index != 0) {
+                  return (
+                    <li key={link.href} className={index === 0 ? "ml-9 xs:max-sm:ml-3" : ""}>
+                      <Link href={link.href} className="hover:text-hover-gray p-3 xm:max-xs:p-0">
+                        {link.label}
+                      </Link>
+                    </li>
+                  )
+                }
+              })}
             </ul>
           </nav>
-          <div className="flex">
+          <details className="mobile-menu relative md:hidden">
+            <summary
+              className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded border border-[#d8d8d8]"
+              aria-label="Open navigation menu"
+            >
+              <span className="mobile-menu__icon" aria-hidden="true"></span>
+            </summary>
+            <ul className="absolute right-0 top-[52px] z-20 w-[190px] rounded border border-[#d8d8d8] bg-white py-2 text-[18px] shadow-lg">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="block px-4 py-3 text-black hover:text-hover-gray">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </details>
+          <div className="hidden md:flex">
             <Image
               src={PhoneImg.src}
               width={46}
@@ -90,12 +109,11 @@ export default function RootLayout({
               className={`ml-2 inline-flex h-[57px] items-center gap-1 overflow-hidden pr-5 text-[22px] font-bold text-[#1A4E95] ${inter.className}`}
             >+1 587 969 5446</a>
           </div>
-
         </header>
         <div className="px-3 xm:max-xs:px-[12px] max-w-[1464px] m-auto">
           {children}
         </div>
-        <footer className="border-t-gray-300 border-t pt-9 px-5">
+        <footer className="bg-blue border-t pt-9 px-5 text-white">
           <div className="flex justify-around mb-5 xm:max-md:flex-col xm:max-md:text-center">
             <div className="xm:max-md:mb-6">
               <h3 className="text-3xl md:max-lg:text-2xl  mb-4 xm:max-md:mb-2">Navigation</h3>
@@ -147,9 +165,6 @@ export default function RootLayout({
               </ul>
             </div>
           </div>
-          <span>
-            logos been taken from https://www.flaticon.com
-          </span>
         </footer>
       </body>
     </html>
