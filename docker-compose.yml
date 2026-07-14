@@ -1,14 +1,14 @@
 services:
-  # next-app:
-  #   build:
-  #     context: .
-  #     dockerfile: /nextJs/Dockerfile
-  #   container_name: next-app
-  #   ports:
-  #     - "3000:3000"
-  #   environment:
-  #     - NODE_ENV=production
-  #   restart: unless-stopped
+  next-app:
+    build:
+      context: .
+      dockerfile: /nextJs/Dockerfile
+    container_name: next-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
 
   next-dev:
     image: node:20-alpine

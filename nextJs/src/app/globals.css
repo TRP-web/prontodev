@@ -88,4 +88,20 @@ md	48rem (768px)	@media (width >= 48rem) { ... }
 lg	64rem (1024px)	@media (width >= 64rem) { ... }
 xl	80rem (1280px)	@media (width >= 80rem) { ... }
 2xl	96rem (1536px)	@media (width >= 96rem) { ... } */
-
+body{
+    background: 
+    url("../public/weblogo/bg-2.png")  left top / 638px auto no-repeat;
+    position: relative;
+    z-index: 0;
+    /* background: url("../public/weblogo/bg-11.png")  left top / 638px auto repeat-y; */
+}
+body::before {
+    content: "";
+  position: absolute;
+  top: 1621px;
+  left: 0;
+  width: 638px;
+  background: url("../public/weblogo/bg-11.png")  left top / 638px auto repeat-y;
+  height: calc(100% - 1621px);
+  z-index: 0;
+}

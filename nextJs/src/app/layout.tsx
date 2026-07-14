@@ -9,6 +9,7 @@ import Link from "next/link";
 import ToOrder from "@/components/ToOrder";
 import { Montserrat, Inter } from "next/font/google";
 import PhoneImg from "@/public/weblogo/phone.svg"
+import BackgroundImage from "@/public/weblogo/bg-1.png"
 
 
 export const metadata: Metadata = {
@@ -43,9 +44,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased max-w-[1920px] m-auto ${montserrat.className}`}
+        className={`antialiased  ${montserrat.className}`}
       >
-        <header className="flex items-center w-full 2xl:h-[173px] xl:h-[120px] lg:h-[80px] justify-between p-1.5 xm:py-3 xm:px-[12px] lg:px-[82px]">
+        <header className={`flex items-center w-full 2xl:h-[173px] xl:h-[120px] lg:h-[80px] justify-between p-1.5 xm:py-3 xm:px-[12px] lg:px-[82px]`}>
           <Link href={"/"} className="block shrink-0">
             <Image
               src={LogoMain.src}
@@ -110,14 +111,14 @@ export default function RootLayout({
             >+1 587 969 5446</a>
           </div>
         </header>
-        <div className="px-3 xm:max-xs:px-[12px] max-w-[1464px] m-auto">
+        <div className="px-3 xm:max-xs:px-[12px] max-w-[1464px] m-auto relative">
           {children}
         </div>
-        <footer className="bg-blue border-t pt-9 px-5 text-white">
-          <div className="flex justify-around mb-5 xm:max-md:flex-col xm:max-md:text-center">
+        <footer className="bg-blue border-t pt-9 px-5 text-white relative">
+          <div className="flex justify-around pb-5 xm:max-md:flex-col xm:max-md:text-center">
             <div className="xm:max-md:mb-6">
-              <h3 className="text-3xl md:max-lg:text-2xl  mb-4 xm:max-md:mb-2">Navigation</h3>
-              <ul className="w-full text-gray text-2xl md:max-lg:text-xl xm:max-xs:text-[18px] items-center">
+              <h3 className="text-[26px] md:max-lg:text-2xl  mb-4 xm:max-md:mb-2">Navigation</h3>
+              <ul className="w-full text-white text-[20px] md:max-lg:text-xl xm:max-xs:text-[18px] items-center">
                 <li className="">
                   <Link href={"/about"} className="hover:text-hover-gray">
                     About us
@@ -136,8 +137,8 @@ export default function RootLayout({
               </ul>
             </div>
             <div className="xm:max-md:mb-6">
-              <h3 className="text-3xl md:max-lg:text-2xl mb-4 xm:max-md:mb-2">Contact Us!</h3>
-              <ul className="w-full text-gray text-2xl md:max-lg:text-xl xm:max-xs:text-[18px] items-center">
+              <h3 className="text-[26px] md:max-lg:text-2xl mb-4 xm:max-md:mb-2">Contact Us!</h3>
+              <ul className="w-full text-white text-[20px] md:max-lg:text-xl xm:max-xs:text-[18px] items-center">
                 <li className="">
                   Email: contact@prontodev.dev
 
@@ -151,8 +152,8 @@ export default function RootLayout({
               </ul>
             </div>
             <div className="xm:max-md:mb-6">
-              <h3 className="text-3xl md:max-lg:text-2xl mb-4 xm:max-md:mb-2">Other information</h3>
-              <ul className="w-full text-gray text-2xl md:max-lg:text-xl items-center xm:max-xs:text-[18px]">
+              <h3 className="text-[26px] md:max-lg:text-2xl mb-4 xm:max-md:mb-2">Other information</h3>
+              <ul className="w-full text-white text-[20px] md:max-lg:text-xl items-center xm:max-xs:text-[18px]">
                 <li className="">
                   Linkedin:
                 </li>
