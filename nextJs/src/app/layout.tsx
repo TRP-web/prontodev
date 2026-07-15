@@ -114,7 +114,7 @@ export default function RootLayout({
         <div className="px-3 xm:max-xs:px-[12px] max-w-[1464px] m-auto relative">
           {children}
         </div>
-        <footer className="bg-blue border-t pt-9 px-5 text-white relative">
+        <footer className="bg-blue border-t pt-9 px-5 text-white relative z-10">
           <div className="flex justify-around pb-5 xm:max-md:flex-col xm:max-md:text-center">
             <div className="xm:max-md:mb-6">
               <h3 className="text-[26px] md:max-lg:text-2xl  mb-4 xm:max-md:mb-2">Navigation</h3>
