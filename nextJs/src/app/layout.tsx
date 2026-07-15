@@ -111,7 +111,7 @@ export default function RootLayout({
             >+1 587 969 5446</a>
           </div>
         </header>
-        <div className="px-3 xm:max-xs:px-[12px] max-w-[1464px] m-auto relative">
+        <div className=" relative">
           {children}
         </div>
         <footer className="bg-blue border-t pt-9 px-5 text-white relative z-10">

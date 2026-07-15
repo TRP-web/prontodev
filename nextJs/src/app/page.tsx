@@ -1,130 +1,59 @@
 import Image from "next/image";
-import ThinkingPerson from "@/public/weblogo/thinkperson.png"
-import ChartIcon from "@/public/smallicons/presentation3.png"
-import TimeIcon from "@/public/smallicons/time-management.png"
-import IdiasIcon from "@/public/smallicons/mentorship.png"
-import AutomationIcon from "@/public/smallicons/automation.png"
+import MainScreenBg from "@/public/images/bg-mainscreen.png"
+import IdeasObjects from "@/public/images/mainscreen-logos.png"
 import Portfolio from "@/components/Portfolio";
 import ApplyForms from "@/components/ApplyForms";
 export default function Main() {
   return (
     <main>
-      {/* лого(наверное какойто текст лого от аи) и картинки
-      шрифты не забудь
-      наебашьить какой визуал чтобы сайт не сильно простым казался
-      капча на квизе
-      бек вроде как сейчас не нужен
-
-      разобраться с емейлами обязательно... */}
-      <section id="main-screen">
-        <div className="flex min-h-[443px] mt-[65px] sm:max-lg:mt-10 xm:max-sm:mt-4  mb-[168px] xs:max-lg:mb-14 xm:max-xs:mb-8 xm:max-md:flex-col xm:max-md:justify-center" >
-          <div className="pt-10 mr-16 xm:max-md:mr-0 xm:max-md:mb-5">
-            <h1 className="text-5xl md:max-lg:text-4xl mb-8 ">Make your thinks <strong>real !</strong> </h1>
-            <p className="text-[22px] md:max-lg:text-[20px]">
-              Have any idias how to make world easier? We are here to make it real.
-              Automate work processes, workers communications,
-              Data collection processing and ect.
-              Please let us know how we can help!
-            </p>
-          </div>
-          <div className="w-full relative shrink-0 grow max-w-[443px] md:max-lg:max-w-[360px] xm:max-md:mx-auto">
-            <Image
-              src={ThinkingPerson.src}
-              alt="profile"
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="top-0 left-0"
-              style={{ width: "100%", height: "auto" }}
-
-            />
-          </div>
-        </div>
-        <div className="flex justify-between items-start mb-[180px] max-lg:flex-wrap max-sm:justify-center">
-          <div className="max-w-[250px] sm:max-lg:max-w-[300px] flex flex-col items-center mr-10 xm:max-sm:mr-0 sm:max-lg:mr-5 xm:max-lg:mb-7">
-            <Image
-              src={TimeIcon.src}
-              alt="profile"
-              className="mb-3"
-              width={102}
-              height={102}
-            />
-            <h3 className="text-2xl font-medium text-center md:max-lg:text-3xl">Make your work easyly</h3>
-            <p className="text-xl md:max-lg:text-2xl">
-              Simplify worker tasks with software designed specifically for their tasks.
-            </p>
-          </div>
-          <div className="max-w-[250px] md:max-lg:max-w-[300px] flex flex-col items-center mr-10 xm:max-sm:mr-0 sm:max-lg:mr-5 xm:max-lg:mb-7">
-            <Image
-              src={ChartIcon.src}
-              alt="profile"
-              className="mb-3"
-              width={102}
-              height={102}
-            />
-            <h3 className="text-2xl font-medium text-center md:max-lg:text-3xl">Colect and analyze data</h3>
-            <p className="text-xl md:max-lg:text-2xl">
-              Collect, compile and review any information to increase efficiency.
-              working hours, orders, sales and etc.
-            </p>
-          </div>
-          <div className="max-w-[250px] md:max-lg:max-w-[300px] flex flex-col items-center mr-10 xm:max-sm:mr-0 md:max-lg:mr-5 xm:max-lg:mb-7">
-            <Image
-              src={IdiasIcon.src}
-              alt="profile"
-              className="mb-3"
-              width={102}
-              height={102}
-            />
-            <h3 className="text-2xl font-medium text-center md:max-lg:text-3xl">
-              Сreate new opportunities
-            </h3>
-            <p className="text-xl md:max-lg:text-2xl">
-              Implement new directions of your business quickly and conveniently. Let’s discuss it
-            </p>
-          </div>
-          <div className="max-w-[250px] md:max-lg:max-w-[300px] flex flex-col items-center mr-10 xm:max-sm:mr-0 md:max-lg:mr-5">
-            <Image
-              src={AutomationIcon.src}
-              alt="profile"
-              className="mb-3"
-              width={102}
-              height={102}
-            />
-            <div className="">
-              <h3 className="text-2xl font-medium text-center md:max-lg:text-3xl">Scalability</h3>
-              <p className="text-xl md:max-lg:text-2xl">
-                Our solution evolves with the business: as the company grows, new modules, functions and integrations can be added.
-              </p>
+      <section id="main-screen" className="">
+        <div
+          className="bg-main relative w-full overflow-hidden  bg-no-repeat bg-right-top px-4 py-20 sm:px-6 md:py-28 lg:bg-right lg:py-[174px] bg-[length:1229px_auto]"
+          
+        >
+          <Image
+                src={IdeasObjects}
+                alt=""
+                priority
+                width={644}
+                height={849}
+                className="absolute top-0 left-[50%] hidden min-w-[500px] max-w-[720px] object-contain lg:block"
+              />
+          <div className="relative z-10 m-auto max-w-[1464px]">
+            <div className="w-full max-w-[679px] text-dark-blue">
+              <div className="w-full">
+                <p className="mb-4 sm:max-w-full text-[15px] font-medium leading-snug tracking-[0.02em] xm:text-center sm:text-start text-[#31558e] xs:text-[17px] md:mb-6">
+                  Custom Software &bull; Automation &bull; Data Solutions
+                </p>
+                <h1 className="mb-4 sm:max-w-[523px] xm:text-4xl xm:text-center sm:text-start sm:text-[clamp(2.4rem,7.5vw,3.875rem)] font-bold leading-[1.04] tracking-normal text-dark-blue">
+                  Turn Your Ideas Into Reality!
+                </h1>
+                <p className="mb-8 sm:max-w-[679px] xm:text-center sm:text-start sm:text-[clamp(1rem,3.3vw,1.625rem)] leading-snug text-[#162340]">
+                  Have an idea that could make work easier? We help businesses automate processes, improve team communication, and build powerful data solutions.
+                </p>
+                <div className="flex flex-col gap-4 xs:flex-row xs:flex-wrap xs:gap-5">
+                  <a
+                    href="#apply-forms"
+                    className="inline-flex w-full items-center justify-center rounded-[3px] bg-blue px-6 py-[15px] text-center text-[clamp(1.125rem,3.8vw,1.75rem)] font-bold text-white transition hover:bg-[#244b82] xs:w-auto xs:px-[45px] xs:py-[17px]"
+                  >
+                    Start a Project
+                  </a>
+                  <a
+                    href="#portfolio"
+                    className="inline-flex w-full items-center justify-center rounded-[3px] border border-[#7fa0cf] px-6 py-[15px] text-center text-[clamp(1.125rem,3.8vw,1.75rem)] font-bold text-blue transition hover:border-blue hover:bg-white/65 xs:w-auto xs:px-[45px] xs:py-[17px]"
+                  >
+                    View our work
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-      <section id="about us" className="mb-16"> {/* chenge text here and "about us" */}
-        <div className="mb-5 bg-gray-100">
-          <h1 className="text-4xl font-bold mb-11 text-center">Quickly About Us</h1>
-          <p className="leading-relaxed text-xl">
-            At <span className="font-semibold">Pronto Dev</span>, we build powerful, scalable, and intuitive web software that helps businesses work smarter, move faster, and grow with confidence. We believe technology should simplify operations—not complicate them. That’s why we focus on creating clean, reliable, and future-proof solutions tailored to each client’s unique needs.
-          </p>
-        </div>
 
-        <div className="">
-          <h2 className="text-3xl font-semibold mb-4">What We Do</h2>
-          <p className=" mb-4 text-xl">
-            We design, develop, and support custom business software, including:
-          </p>
-
-          <ul className="list-disc pl-6 space-y-2 text-xl">
-            <li>Small buissnes websites with flexible management (CMS)</li>
-            <li>Work process optimization & system modernization</li>
-            <li>Internal management systems (CRM, ERP, HR platforms)</li>
-            <li>Custom dashboards & automation tools</li>
-            <li>Client portals & service platforms</li>
-          </ul>
-        </div>
 
       </section>
-      <section>
+
+      <section id="portfolio">
         <Portfolio />
         <ApplyForms />
       </section>
