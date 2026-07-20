@@ -87,14 +87,30 @@ export default function RootLayout({
             >
               <span className="mobile-menu__icon" aria-hidden="true"></span>
             </summary>
-            <ul className="absolute right-0 top-[52px] z-20 w-[190px] rounded border border-[#d8d8d8] bg-white py-2 text-[18px] shadow-lg">
+            <ul className="absolute right-0 top-[52px] z-20 w-[290px] rounded border border-[#d8d8d8] bg-white py-2 text-[18px] shadow-lg">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="block px-4 py-3 text-black hover:text-hover-gray">
+                  <Link href={link.href} className="block px-4 py-4 text-black hover:text-hover-gray text-xl">
                     {link.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <div className="flex pl-4">
+                  <Image
+                    src={PhoneImg.src}
+                    width={46}
+                    height={46}
+                    alt="phone logo"
+                    className="lg:w-[35px] xl:w-[46px] md:w-[25px]"
+                  />
+                  <a
+                    href="tel:+15879695446"
+                    className={`ml-2 inline-flex h-[57px] items-center gap-1 overflow-hidden text-[22px] font-bold text-[#1A4E95] ${inter.className}`}
+                  >+1 587 969 5446</a>
+                </div>
+
+              </li>
             </ul>
           </details>
           <div className="hidden md:flex">
@@ -111,7 +127,7 @@ export default function RootLayout({
             >+1 587 969 5446</a>
           </div>
         </header>
-        <div className=" relative">
+        <div className="relative">
           {children}
         </div>
         <footer className="bg-blue border-t pt-9 px-5 text-white relative z-10">
