@@ -3,12 +3,14 @@ import MainScreenBg from "@/public/images/bg-mainscreen.png"
 import IdeasObjects from "@/public/images/mainscreen-logos.png"
 import Portfolio from "@/components/Portfolio";
 import ApplyForms from "@/components/ApplyForms";
+import Container from "@/components/Container";
+import WhatYouGet from "@/components/WhatYouGet";
 export default function Main() {
   return (
     <main>
       <section id="main-screen" className="">
         <div
-          className="bg-main relative w-full overflow-hidden  bg-no-repeat bg-right-top xm:px-2 xs:px-3 py-20 sm:px-6 md:py-28 lg:bg-right lg:py-[174px] bg-[length:1229px_auto]"
+          className="bg-main relative w-full overflow-hidden  bg-no-repeat bg-right-top xm:px-2 xs:px-3 py-20 sm:px-6 md:py-28 lg:bg-right lg:py-[210px] bg-[length:1229px_auto] lg:mb-[90px]"
           
         >
           <Image
@@ -19,7 +21,7 @@ export default function Main() {
                 height={849}
                 className="absolute top-0 left-[50%] hidden min-w-[500px] max-w-[720px] object-contain lg:block"
               />
-          <div className="relative z-10 m-auto max-w-[1464px]">
+          <Container className="relative z-10">
             <div className="w-full max-w-[679px] text-dark-blue">
               <div className="w-full">
                 <p className="mb-4 sm:max-w-full text-[15px] font-medium leading-snug tracking-[0.02em] xm:text-center sm:text-start text-[#31558e] xs:text-[17px] md:mb-6">
@@ -47,11 +49,11 @@ export default function Main() {
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
         </div>
-
-
       </section>
+
+      <WhatYouGet />
 
       <section id="portfolio">
         <Portfolio />
