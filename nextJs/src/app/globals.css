@@ -138,5 +138,6 @@ body::after {
     body::before{
         background: url("../public/weblogo/bg-11.png")  left top / 300px auto repeat-y;
         top: 1045px;
+        width: 320px;
     }
 }
