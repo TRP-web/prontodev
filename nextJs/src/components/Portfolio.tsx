@@ -8,13 +8,14 @@ import PortfolioImage2 from "@/public/portfolio/portfolio-2.png"
 import FoodImage from "@/public/portfolio/food-main.png"
 import FoodImage1 from "@/public/portfolio/food-1.png"
 import Project from "./Project"
+import ProjectsSlider from "./ProjectsSlider"
 
 
 const Portfolio = () => {
    return (
       <div className="mb-28">
          <h3 className="text-center text-4xl font-bold mb-11">Our Projects</h3>
-         <div className="flex flex-col items-center">
+         <ProjectsSlider>
             <Project
                image={ChatImage.src}
                extraImages={[ChatImage1.src]}
@@ -68,7 +69,7 @@ const Portfolio = () => {
                <strong>Food delivery website</strong> with a modern UI and easy-to-use CMS for managing menus, prices, and promotions. Optimized for mobile devices and fast ordering.
                </>}
             />
-         </div>
+         </ProjectsSlider>
       </div>
    )
 }
