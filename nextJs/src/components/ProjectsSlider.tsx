@@ -23,7 +23,7 @@ const ProjectsSlider = ({ children }: ProjectsSliderProps) => {
          // loop={projects.length > 2}
          slidesPerView="auto"
          spaceBetween={16}
-         className="w-full"
+         className="w-full max-w-[1300px] !py-10 slider-box-shadow"
          breakpoints={{
             640: {
                spaceBetween: 24,

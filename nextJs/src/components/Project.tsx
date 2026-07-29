@@ -94,7 +94,7 @@ const Project: React.FC<IProjectProps> = ({
 
 
     return (
-        <div className="mb-11 cursor-pointer max-w-[945px] w-full rounded-2xl shadow-[0_0_41px_9px_rgba(34,60,80,0.09)]   min-lg:hover:scale-105 duration-300" id="hover">
+        <div className=" cursor-pointer max-w-[945px] w-full rounded-2xl min-lg:hover:scale-105 duration-300" id="hover">
             {
                 viewingConditions()
             }
