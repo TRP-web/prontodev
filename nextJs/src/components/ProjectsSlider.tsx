@@ -1,10 +1,11 @@
 'use client'
 
 import { Children, type ReactNode } from "react"
-import { A11y, Keyboard } from "swiper/modules"
+import { A11y, Keyboard, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import "swiper/css"
+import "swiper/css/pagination"
 
 interface ProjectsSliderProps {
    children: ReactNode
@@ -18,12 +19,13 @@ const ProjectsSlider = ({ children }: ProjectsSliderProps) => {
 
       // when slider is active then start to play images. indicators  like how many images or time remaining to show the next image.
       <Swiper
-         modules={[A11y, Keyboard]}
+         modules={[A11y, Keyboard, Pagination]}
          aria-label="Our projects"
          centeredSlides
          grabCursor
          keyboard={{ enabled: true }}
          // loop={projects.length > 2}
+         pagination={{ clickable: true }}
          slidesPerView="auto"
          spaceBetween={16}
          className="w-full max-w-[1300px] !py-10 slider-box-shadow"
