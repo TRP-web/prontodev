@@ -14,6 +14,9 @@ const ProjectsSlider = ({ children }: ProjectsSliderProps) => {
    const projects = Children.toArray(children)
 
    return (
+      // make sign about the slider for mobile version. to show that the slider is scrollable, add a small arrow icon on the right side of the slider. or smt other.
+
+      // when slider is active then start to play images. indicators  like how many images or time remaining to show the next image.
       <Swiper
          modules={[A11y, Keyboard]}
          aria-label="Our projects"
