@@ -1,69 +1,94 @@
 import React from "react"
+import Image from "next/image"
+import contactCourierImage from "@/public/quiz-images/contact-courier.png"
 
 interface IContactEmailProps {
     token: string
     setFinished: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ContactEmail: React.FC<IContactEmailProps> = ({token, setFinished}) => {
+const ContactEmail: React.FC<IContactEmailProps> = ({ token, setFinished }) => {
     const [emailInput, setEmailInput] = React.useState<string>("")
-    const emailForContacting = async (email: string, token: string) => {
+
+    const emailForContacting = async (email: string, recaptchaToken: string) => {
         setEmailInput("")
         const res = await fetch("/api/contact-email", {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email: email, token })
+            body: JSON.stringify({ email: email, token: recaptchaToken }),
         })
         const resjson = await res.json()
         setFinished(resjson.success)
         console.log(resjson)
     }
+
     return (
-        <>
-            <h2 className="text-center text-4xl font-bold mb-14">Interesting?</h2>
-            <form className="flex justify-center">
-                <div className="flex flex-col ">
-                    <label htmlFor="email">Email:</label>
-                    <div className="flex items-center xm:max-sm:flex-col">
-                        <input
-                            className="input-text mr-12 grow sm:max-md:mr-8 xs:max-md:min-w-[350px]! xm:max-xs:min-w-[320px]! xm:max-sm:mb-4 xm:max-sm:mr-0  
-                            "
-                            type="email"
-                            value={emailInput}
-                            onChange={(e) => setEmailInput(e.target.value)}
-                            name="email"
-                            id="email"
-                            alt="email"
-                        />
-                        <button
-                            onClick={(e) => { e.preventDefault(); emailForContacting(emailInput, token) }}
-                            onSubmit={(e) => {
-                                e.preventDefault()
-                            }}
-                            className="p-4 cursor-pointer text-2xl font-medium button "
-                        >
-                            Contact Me!
-                        </button>
-                        <div
-                            className="g-recaptcha"
-                            data-sitekey="6Lca5OErAAAAAA1r3dfFVQWTMd5x2tohlMDRcjJw"
-                            data-size="invisible"
-                        ></div>
-                    </div>
+        <div className="mx-auto max-w-[920px]">
+            <h2 className="mb-10 text-center text-[clamp(2rem,5vw,3.25rem)] font-bold leading-tight text-[#162340]">
+                Interesting?
+            </h2>
+
+            <div className="grid overflow-hidden rounded-[16px] border border-[#dbe5f1] bg-[#f5f7fa] shadow-[0_14px_40px_rgba(45,90,152,0.10)] md:grid-cols-[1.08fr_0.92fr]">
+                <form
+                    className="flex min-h-[330px] flex-col justify-center px-6 py-9 sm:px-10 md:py-12"
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        emailForContacting(emailInput, token)
+                    }}
+                >
+                    <h3 className="mb-3 text-center text-[clamp(1.4rem,3vw,1.85rem)] font-bold text-[#2d5a98] md:text-left">
+                        Contact Us
+                    </h3>
+                    <p className="mb-6 text-sm leading-relaxed text-[#66738a]">
+                        Leave your email and we&apos;ll get in touch to discuss your project.
+                    </p>
+                    <label className="mb-1 block text-sm font-medium text-[#2d5a98]" htmlFor="contact-email">
+                        Email:
+                    </label>
+                    <input
+                        className="h-11 w-full rounded-[7px] border border-[#9bb8db] bg-white px-3 text-base text-[#162340] placeholder:text-[#a8b4c6] focus:border-[#2d5a98] focus:outline-none focus:ring-2 focus:ring-[#2d5a98]/15"
+                        type="email"
+                        value={emailInput}
+                        onChange={(e) => setEmailInput(e.target.value)}
+                        name="email"
+                        id="contact-email"
+                        placeholder="Your email address..."
+                    />
+                    <button
+                        type="submit"
+                        className="mt-5 self-start rounded-[5px] bg-[#2d5a98] px-6 py-2.5 text-base font-bold text-white transition hover:bg-[#244b82] focus:outline-none focus:ring-2 focus:ring-[#2d5a98]/30"
+                    >
+                        Contact Me!
+                    </button>
+                    <div
+                        className="g-recaptcha"
+                        data-sitekey="6Lca5OErAAAAAA1r3dfFVQWTMd5x2tohlMDRcjJw"
+                        data-size="invisible"
+                    />
+                </form>
+
+                <div className="relative min-h-[290px] overflow-hidden bg-[radial-gradient(circle_at_50%_45%,#fff_0%,#f7e9ff_42%,#dce6ff_100%)] md:min-h-full">
+                    <Image
+                        src={contactCourierImage}
+                        alt="Courier carrying an envelope"
+                        fill
+                        sizes="(max-width: 767px) 100vw, 420px"
+                        className="object-cover"
+                    />
                 </div>
-            </form>
-            <div className="mb-12">
-
-            </div>
-            <div className="relative">
-                <span className="h-0.5 w-[40%] absolute top-[calc(50%-1px)] left-0 bg-gray-100 "></span>
-                <span className="h-0.5 w-[40%] absolute top-[calc(50%-1px)] right-0 bg-gray-100"></span>
-                <h3 className="text-2xl font-medium text-center mb-12 relative">Or...</h3>
             </div>
 
-        </>
+            <div className="relative py-12 text-center">
+                <span className="absolute left-0 top-1/2 h-px w-[35%] bg-[#cddcec]" aria-hidden="true" />
+                <span className="absolute right-0 top-1/2 h-px w-[35%] bg-[#cddcec]" aria-hidden="true" />
+                <h3 className="relative inline-block bg-[#f7fafc] px-5 text-lg font-bold uppercase leading-tight text-[#2d5a98]">
+                    Or...
+                    <span className="mt-1 block normal-case">We will contact you!</span>
+                </h3>
+            </div>
+        </div>
     )
 }
 

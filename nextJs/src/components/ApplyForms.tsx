@@ -42,10 +42,10 @@ const ApplyForms = () => {
     }, [])
     return (
         <>
-            <div id="apply-forms">
+            <div id="apply-forms" className="apply-forms-section px-4 py-16 sm:px-6 sm:py-24">
                 {
                     finished ?
-                        <div className="max-w-[780px] m-auto text-2xl text-center mb-12 bg-purple-600 text-white p-2">
+                        <div className="mx-auto max-w-[920px] rounded-[16px] bg-[#2d5a98] p-6 text-center text-2xl text-white shadow-[0_14px_40px_rgba(45,90,152,0.18)]">
                             <strong>We are 100% done! Thank you!</strong>
                         </div>
                         : <>
