@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "next/image"
-import contactCourierImage from "@/public/quiz-images/contact-courier.png"
+import contactCourierImage from "@/public/quiz-images/quiz1.png"
 
 interface IContactEmailProps {
     token: string
@@ -69,11 +69,10 @@ const ContactEmail: React.FC<IContactEmailProps> = ({ token, setFinished }) => {
                     />
                 </form>
 
-                <div className="relative min-h-[290px] overflow-hidden bg-[radial-gradient(circle_at_50%_45%,#fff_0%,#f7e9ff_42%,#dce6ff_100%)] md:min-h-full">
+                <div className="relative min-h-[390px] md:min-h-full m-auto">
                     <Image
                         src={contactCourierImage}
                         alt="Courier carrying an envelope"
-                        fill
                         sizes="(max-width: 767px) 100vw, 420px"
                         className="object-cover"
                     />

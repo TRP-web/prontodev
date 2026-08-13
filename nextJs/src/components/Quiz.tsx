@@ -3,7 +3,7 @@ import Image, { type StaticImageData } from "next/image"
 import buissnesImprovingImage from "@/public/quiz-images/bord.png"
 import processImprovingImage from "@/public/quiz-images/process.png"
 import budgetImage from "@/public/quiz-images/budget.png"
-import contactCourierImage from "@/public/quiz-images/contact-courier.png"
+import contactCourierImage from "@/public/quiz-images/quiz2.png"
 
 interface IQuizProps {
     token: string
@@ -49,7 +49,6 @@ const QuestionLayout: React.FC<IQuestionLayoutProps> = ({
     children,
     image,
     imageAlt,
-    imageClassName = "object-contain p-10",
 }) => (
     <div className={active ? "grid min-h-[390px] md:grid-cols-[1.08fr_0.92fr]" : "hidden"}>
         <div className="flex flex-col justify-center px-6 py-9 sm:px-10 md:py-12">
@@ -59,9 +58,8 @@ const QuestionLayout: React.FC<IQuestionLayoutProps> = ({
             <Image
                 alt={imageAlt}
                 src={image}
-                fill
                 sizes="(max-width: 767px) 100vw, 420px"
-                className={imageClassName}
+                className={"w-full"}
             />
         </div>
     </div>
@@ -180,7 +178,7 @@ const Quiz: React.FC<IQuizProps> = ({ token, setFinished }) => {
 
                 <QuestionLayout
                     active={activeQuestion === 1}
-                    image={buissnesImprovingImage}
+                    image={contactCourierImage}
                     imageAlt="Business growth chart"
                 >
                     <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#7182a7]">Step 01</p>
@@ -214,7 +212,7 @@ const Quiz: React.FC<IQuizProps> = ({ token, setFinished }) => {
 
                 <QuestionLayout
                     active={activeQuestion === 2}
-                    image={processImprovingImage}
+                    image={contactCourierImage}
                     imageAlt="Process improvement illustration"
                 >
                     <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#7182a7]">Step 02</p>
@@ -246,7 +244,7 @@ const Quiz: React.FC<IQuizProps> = ({ token, setFinished }) => {
 
                 <QuestionLayout
                     active={activeQuestion === 3}
-                    image={budgetImage}
+                    image={contactCourierImage}
                     imageAlt="Project budget illustration"
                 >
                     <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#7182a7]">Step 03</p>
